@@ -3,20 +3,9 @@
   "tasks": [
     {
       "label": "Build MPI",
-      "type": "shell",
-      "command": "cl.exe",
-      "args": [
-        "/Zi",
-        "/EHsc",
-        "/nologo",
-        "/I${env:MSMPI_INC}.",
-        "/I${env:MSMPI_INC}x64",
-        "${file}",
-        "/link",
-        "/LIBPATH:${env:MSMPI_LIB64}.",
-        "msmpi.lib",
-        "/OUT:${fileDirname}\\${fileBasenameNoExtension}.exe"
-      ],
+      "type": "process",
+      "command": "${workspaceFolder}\\build_mpi.bat",
+      "args": ["${file}"],
       "options": {
         "cwd": "${fileDirname}"
       },
